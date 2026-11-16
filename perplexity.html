@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perplexity AI - AI Toolbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- 1. 頂部導覽列 -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 font-bold text-xl text-indigo-600 tracking-tight">
+        <span class="bg-indigo-600 text-white px-2 py-0.5 rounded-md text-sm">AI</span>
+        <span>Toolbook</span>
+      </a>
+      <a href="../index.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">
+        ← 返回工具列表
+      </a>
+    </div>
+  </header>
+
+  <!-- 主要內容區 -->
+  <main class="max-w-4xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- 2. 工具標頭區 (Hero) -->
+    <section class="bg-white border border-slate-200 rounded-xl p-6 md:p-8 mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-md">
+          效率工具
+        </span>
+        <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+          造訪官方網站 ↗
+        </a>
+      </div>
+      <h1 class="text-3xl font-bold text-slate-900 mb-3">Perplexity AI</h1>
+      <p class="text-slate-600 text-base leading-relaxed">
+        結合即時網路搜尋與大語言模型的對話式研究引擎，能自動彙整多方網頁資訊並附上精確的引用來源連結。
+      </p>
+    </section>
+
+    <!-- 3. 核心功能與適用場景 -->
+    <section class="mb-8">
+      <h2 class="text-xl font-bold text-slate-900 mb-4">核心功能與適用場景</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">即時連網與來源標註</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            每段論點皆標註資料出處編號，點擊即可核對原始網頁，大幅降低傳統語言模型的幻覺風險。
+          </p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">Focus 學術與技術定向搜尋</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            可限定搜尋範圍為 Academic（學術論文）或 Reddit/討論區，快速取得專業文獻或真實使用者評價。
+          </p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">Deep Research 深度研究報告</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            針對複雜議題自動執行多輪檢索與交叉比對，數分鐘內產出結構完整的市場分析或技術調研報告。
+          </p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">Spaces 專案知識庫</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            可將特定主題的搜尋串整理成獨立空間，並設定專屬系統指令，建立個人化的研究主題資料庫。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 實戰 Prompt 範例區 -->
+    <section>
+      <h2 class="text-xl font-bold text-slate-900 mb-4">實戰 Prompt 範例</h2>
+      <div class="space-y-4">
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-semibold text-slate-800">範例一：技術方案選型與比較</span>
+            <button onclick="copyPrompt('prompt-1', this)" class="text-xs font-medium text-indigo-600 hover:text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded transition">
+              複製指令
+            </button>
+          </div>
+          <pre id="prompt-1" class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-sm overflow-x-auto whitespace-pre-wrap">請比較 Astro、Next.js 與純靜態 HTML 在部署個人知識庫網站時的優缺點。請用 Markdown 表格整理建置複雜度、載入速度與維護成本，並附上官方文件來源。</pre>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-semibold text-slate-800">範例二：快速掌握新概念與實作標準</span>
+            <button onclick="copyPrompt('prompt-2', this)" class="text-xs font-medium text-indigo-600 hover:text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded transition">
+              複製指令
+            </button>
+          </div>
+          <pre id="prompt-2" class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-sm overflow-x-auto whitespace-pre-wrap">請整理目前軟體開發社群中，在專案根目錄撰寫 AGENTS.md 或 CLAUDE.md 的最佳實踐（Best Practices），列出 5 個最關鍵的設定區塊並提供範例。</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="border-t border-slate-200 bg-white mt-12">
+    <div class="max-w-4xl mx-auto px-6 py-6 text-center text-sm text-slate-500">
+      Built with AGENTS.md Specification · Pure HTML &amp; Tailwind CSS
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerText;
+        btn.innerText = '已複製！';
+        setTimeout(() => btn.innerText = original, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

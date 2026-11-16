@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursor - AI Toolbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- 1. 頂部導覽列 -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 font-bold text-xl text-indigo-600 tracking-tight">
+        <span class="bg-indigo-600 text-white px-2 py-0.5 rounded-md text-sm">AI</span>
+        <span>Toolbook</span>
+      </a>
+      <a href="../index.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">
+        ← 返回工具列表
+      </a>
+    </div>
+  </header>
+
+  <!-- 主要內容區 -->
+  <main class="max-w-4xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- 2. 工具標頭區 (Hero) -->
+    <section class="bg-white border border-slate-200 rounded-xl p-6 md:p-8 mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-md">
+          程式開發
+        </span>
+        <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+          造訪官方網站 ↗
+        </a>
+      </div>
+      <h1 class="text-3xl font-bold text-slate-900 mb-3">Cursor</h1>
+      <p class="text-slate-600 text-base leading-relaxed">
+        基於 VS Code 深度改造的 AI 原生程式碼編輯器，能索引整個專案結構，讓開發者透過自然語言快速撰寫、重構與除錯。
+      </p>
+    </section>
+
+    <!-- 3. 核心功能與適用場景 -->
+    <section class="mb-8">
+      <h2 class="text-xl font-bold text-slate-900 mb-4">核心功能與適用場景</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">Composer 多檔案同步開發</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            透過自然語言指令同時建立或修改多個關聯檔案，適合從零搭建專案骨架或跨檔案重構功能。
+          </p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">Codebase 全庫上下文索引</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            使用 @Codebase 即可針對整個專案提問，快速掌握陌生開源專案的架構邏輯與資料流向。
+          </p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">Tab 智慧預測補全</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            不僅預測下一個單字，更能預測游標下一步的編輯位置與多行邏輯修改，大幅減少重複性敲擊。
+          </p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <h3 class="font-bold text-indigo-600 mb-2">.cursorrules 專案規範綁定</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            搭配專案根目錄的規範文件，強制 AI 遵守團隊指定的技術棧、命名慣例與版面結構。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 實戰 Prompt 範例區 -->
+    <section>
+      <h2 class="text-xl font-bold text-slate-900 mb-4">實戰 Prompt 範例</h2>
+      <div class="space-y-4">
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-semibold text-slate-800">範例一：依據規範文件新增頁面</span>
+            <button onclick="copyPrompt('prompt-1', this)" class="text-xs font-medium text-indigo-600 hover:text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded transition">
+              複製指令
+            </button>
+          </div>
+          <pre id="prompt-1" class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-sm overflow-x-auto whitespace-pre-wrap">請閱讀根目錄的 @AGENTS.md，嚴格遵守裡面的視覺系統與版面結構，在 tools/ 資料夾下新增一篇介紹 Notion AI 的頁面，並同步更新 @index.html 的卡片列表。</pre>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-semibold text-slate-800">範例二：程式碼重構與效能檢查</span>
+            <button onclick="copyPrompt('prompt-2', this)" class="text-xs font-medium text-indigo-600 hover:text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded transition">
+              複製指令
+            </button>
+          </div>
+          <pre id="prompt-2" class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-sm overflow-x-auto whitespace-pre-wrap">請檢查目前選取的函式是否存在潛在的邊界條件錯誤或重複渲染問題，保持原有輸入輸出介面不變，提供更簡潔且易讀的重構版本。</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="border-t border-slate-200 bg-white mt-12">
+    <div class="max-w-4xl mx-auto px-6 py-6 text-center text-sm text-slate-500">
+      Built with AGENTS.md Specification · Pure HTML &amp; Tailwind CSS
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt(elementId, btn) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerText;
+        btn.innerText = '已複製！';
+        setTimeout(() => btn.innerText = original, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
